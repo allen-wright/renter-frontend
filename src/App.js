@@ -10,9 +10,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
-        <Routes />
-      </main>
+      <Routes />
       <Footer />
     </>
   );
