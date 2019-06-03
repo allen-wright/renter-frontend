@@ -4,13 +4,31 @@ body {
   height: 100vh;
 }
 
+#root {
+  width: 100%;
+}
+
 header {
   height: 10vh;
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 header * {
   padding: 0;
   margin: 0;
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+nav form {
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 main {

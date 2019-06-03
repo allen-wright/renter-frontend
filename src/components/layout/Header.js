@@ -1,16 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-const Header = ({ auth }) => {
+const Header = ({ user }) => {
+  const [ error, setError ] = useState(null);
+  const [ userData, setUserData ] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = e => {
+    setUserData({
+      ...userData,
+      [e.target.name]: e.target.value
+    });
+    console.log(e.target.value);
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    console.log('test');
+  }
+
+  const { email, password } = userData;
+
   return(
     <header>
       <div className="logo">
         <h1>Renter</h1>
       </div>
-        { auth.name ?
+        { user.isLoggedIn ?
         <nav>
-          <Link to='/profile'>Welcome, { auth.name.split(' ')[0] }</Link>
+          <Link to='/profile'>Welcome, { user.name.split(' ')[0] }</Link>
           <Link to='/requests'>Maintenance Requests</Link>
           <Link to='/messages'>Messages</Link>
           <Link to='/terms'>Lease Terms</Link>
@@ -18,8 +39,18 @@ const Header = ({ auth }) => {
         </nav>
         :
         <nav>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Signup</Link>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input type="email" name="email" value={email} onChange={handleChange} />
+            </div>
+            <div>
+              <label htmlFor="password">Password</label>
+              <input type="password" name="password" value={password} onChange={handleChange} />
+            </div>
+            <input value="Submit" type="submit" />
+          </form>
+          <Link to='/signup'>Sign Up</Link>
         </nav>
         }
     </header>
@@ -28,7 +59,7 @@ const Header = ({ auth }) => {
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth,
+    user: state.user,
   }
 }
 

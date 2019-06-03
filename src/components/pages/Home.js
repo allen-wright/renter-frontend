@@ -1,18 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Home = ({ auth }) => {
+const Home = ({ user }) => {
   return(
     <main className="home">
       <h1>Home</h1>
-      <h2>Welcome, {auth.name}</h2>
+      <h2></h2>
     </main>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth,
+    user: state.user,
   }
 }
 
