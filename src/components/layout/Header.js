@@ -58,10 +58,8 @@ const Header = ({ user }) => {
   )
 }
 
-const mapStateToProps = state => {
-  return {
+const mapStateToProps = state => ({
     user: state.user,
-  }
-}
+});
 
 export default connect(mapStateToProps, { userLoginFetch })(Header);

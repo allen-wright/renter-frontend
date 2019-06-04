@@ -1,25 +1,26 @@
-export const userLoginFetch = user => async dispatch => {
-    console.log('passed dispatch');
-    const response = await fetch('localhost:4000/api/v1/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      },
-      body: JSON.stringify({user})
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
+import { LOGIN_USER } from './types';
+
+export const userLoginFetch = userData => dispatch => {
+  console.log('try');
+  axios.post('http://localhost:4000/api/v1/auth/login', userData)
+    .then(res => {
+      // Save to localStorage
+      const { token } = res.data;
+      // Set token
+      localStorage.setItem('jwtToken', token);
+      // Set token to Auth Header
+      // setAuthToken(token);
+      // Decode token to get user data
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(loginUser(decoded));
     })
-      // .then(handleErrors)
-      // .then(res => { res.json(); console.log(res) })
-      // .then(data => {
-      //   if (data.message) {
-      //     console.log(data.message);
-      //   } else {
-      //     localStorage.setItem("token", data.jwt);
-      //     dispatch(loginUser(data.user));
-      //   }
-      // })
-    console.log(response);
-}
+    .catch(err =>
+      console.log(err)
+    );
+};
 
 function handleErrors(response) {
   if (!response.ok) {
