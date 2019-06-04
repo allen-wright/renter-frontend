@@ -1,5 +1,3 @@
-const LOGIN_USER = 'LOGIN_USER';
-
 export const userLoginFetch = user => async dispatch => {
     console.log('passed dispatch');
     const response = await fetch('localhost:4000/api/v1/auth/login', {
