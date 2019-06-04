@@ -3,9 +3,10 @@ import jwt_decode from 'jwt-decode';
 import { LOGIN_USER } from './types';
 
 export const userLoginFetch = userData => dispatch => {
-  console.log('try');
+  console.log(userData);
   axios.post('http://localhost:4000/api/v1/auth/login', userData)
     .then(res => {
+      console.log(res.data.token);
       // Save to localStorage
       const { token } = res.data;
       // Set token

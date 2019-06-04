@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userLoginFetch } from '../../actions/userActions';
 
-const Header = ({ user }) => {
+const Header = ({ user, userLoginFetch }) => {
   const [ error, setError ] = useState(null);
   const [ userData, setUserData ] = useState({
     email: '',
@@ -19,7 +19,6 @@ const Header = ({ user }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(userData);
     userLoginFetch(userData);
   }
 
@@ -32,7 +31,7 @@ const Header = ({ user }) => {
       </div>
         { user.isLoggedIn ?
         <nav>
-          <Link to='/profile'>Welcome, { user.name.split(' ')[0] }</Link>
+          {/* <Link to='/profile'>Welcome, { user.name.split(' ')[0] }</Link> */}
           <Link to='/requests'>Maintenance Requests</Link>
           <Link to='/messages'>Messages</Link>
           <Link to='/terms'>Lease Terms</Link>
@@ -59,7 +58,7 @@ const Header = ({ user }) => {
 }
 
 const mapStateToProps = state => ({
-    user: state.user,
+    user: state.user
 });
 
-export default connect(mapStateToProps, { userLoginFetch })(Header);
+export default connect(mapStateToProps, { userLoginFetch } )(Header);

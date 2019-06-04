@@ -6,7 +6,6 @@ import Routes from './config/routes';
 import './App.css';
 
 function App() {
-
   return (
     <>
       <Header />
