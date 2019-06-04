@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { userLoginFetch } from '../../actions/userActions';
 
 const Header = ({ user }) => {
   const [ error, setError ] = useState(null);
@@ -14,12 +15,12 @@ const Header = ({ user }) => {
       ...userData,
       [e.target.name]: e.target.value
     });
-    console.log(e.target.value);
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    console.log('test');
+    console.log(userData);
+    userLoginFetch(userData);
   }
 
   const { email, password } = userData;
@@ -63,4 +64,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, { userLoginFetch })(Header);
