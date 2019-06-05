@@ -14,7 +14,6 @@ import './App.css';
 // also sets the redux store to the decoded JWT token's user info
 if (localStorage.jwtToken) {
   let jwtToken = localStorage.jwtToken;
-  console.log('>>> got token');
   setAuthHeader(jwtToken);
   const decodedToken = jwt_decode(localStorage.jwtToken);
   store.dispatch(setCurrentUser(decodedToken));

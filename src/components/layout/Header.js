@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginUser } from '../../actions/userActions';
+import { loginUser, logoutUser } from '../../actions/userActions';
 
-const Header = ({ user, userLoginFetch }) => {
-  const [ error, setError ] = useState(null);
+const Header = ({ user, loginUser, logoutUser }) => {
+  // const [ error, setError ] = useState(null);
   const [ userData, setUserData ] = useState({
     email: '',
     password: ''
   });
+
+  const { email, password } = userData;
+  const { currentUser } = user;
 
   const handleChange = e => {
     setUserData({
@@ -22,20 +25,23 @@ const Header = ({ user, userLoginFetch }) => {
     loginUser(userData);
   }
 
-  const { email, password } = userData;
+  const handleLogout = e => {
+    e.preventDefault();
+    logoutUser();
+  }
 
   return(
     <header>
       <div className="logo">
         <h1>Renter</h1>
       </div>
-        { user ?
+        { currentUser.email ?
         <nav>
-          {/* <Link to='/profile'>Welcome, { user.name.split(' ')[0] }</Link> */}
+          <Link to='/dashboard'>Welcome, { currentUser.name.split(' ')[0] }</Link>
           <Link to='/requests'>Maintenance Requests</Link>
           <Link to='/messages'>Messages</Link>
           <Link to='/terms'>Lease Terms</Link>
-          <Link to='/logout'>Logout</Link>
+          <a href="/" onClick={handleLogout}>Logout</a>
         </nav>
         :
         <nav>
@@ -61,4 +67,4 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
-export default connect(mapStateToProps, { loginUser } )(Header);
+export default connect(mapStateToProps, { loginUser, logoutUser } )(Header);

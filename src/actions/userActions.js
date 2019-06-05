@@ -3,11 +3,28 @@ import jwt_decode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
 import setAuthHeader from '../utils/setAuthHeader';
 
+export const signUpUser = userData => dispatch => {
+  axios.post('http://localhost:4000/api/v1/auth/signup', userData)
+    .then(res => {
+      // Save to localStorage
+      const { token } = res.data;
+      // Set token
+      localStorage.setItem('jwtToken', token);
+      // Set token to Auth Header
+      setAuthHeader(token);
+      // Decode token to get user data
+      const decoded = jwt_decode(token);
+      // Set current user
+      dispatch(setCurrentUser(decoded));
+    })
+    .catch(err =>
+      console.log(err)
+    );
+};
+
 export const loginUser = userData => dispatch => {
-  console.log(userData);
   axios.post('http://localhost:4000/api/v1/auth/login', userData)
     .then(res => {
-      console.log(res.data.token);
       // Save to localStorage
       const { token } = res.data;
       // Set token
@@ -33,12 +50,12 @@ export const logoutUser = () => dispatch => {
   dispatch(setCurrentUser({}));
 }
 
-function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  return response;
-}
+// function handleErrors(response) {
+//   if (!response.ok) {
+//     throw Error(response.statusText);
+//   }
+//   return response;
+// }
 
 export const setCurrentUser = userObj => ({
   type: SET_CURRENT_USER,
