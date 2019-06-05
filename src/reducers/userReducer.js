@@ -1,15 +1,13 @@
-import { LOGIN_USER } from '../actions/types';
+import { SET_CURRENT_USER } from '../actions/types';
 
 const initialState = {
-  currentUser: {},
-  isLoggedIn: false,
-  isFetching: true
+  currentUser: {}
 }
 
 const user = (state = initialState, action) => {
   switch(action.type) {
-    case LOGIN_USER:
-      return {...state, currentUser: action.payload, isLoggedIn: true, isFetching: false};
+    case SET_CURRENT_USER:
+      return {...state, currentUser: action.payload};
     default:
       return state;
   }

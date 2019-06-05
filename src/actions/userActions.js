@@ -1,8 +1,9 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
-import { LOGIN_USER } from './types';
+import { SET_CURRENT_USER } from './types';
+import setAuthHeader from '../utils/setAuthHeader';
 
-export const userLoginFetch = userData => dispatch => {
+export const loginUser = userData => dispatch => {
   console.log(userData);
   axios.post('http://localhost:4000/api/v1/auth/login', userData)
     .then(res => {
@@ -12,16 +13,25 @@ export const userLoginFetch = userData => dispatch => {
       // Set token
       localStorage.setItem('jwtToken', token);
       // Set token to Auth Header
-      // setAuthToken(token);
+      setAuthHeader(token);
       // Decode token to get user data
       const decoded = jwt_decode(token);
       // Set current user
-      dispatch(loginUser(decoded));
+      dispatch(setCurrentUser(decoded));
     })
     .catch(err =>
       console.log(err)
     );
 };
+
+export const logoutUser = () => dispatch => {
+  // Remove token from localStorage
+  localStorage.removeItem('jwtToken');
+  // Remove auth header for future requests
+  setAuthHeader(false);
+  // Set Current User to empty object which will set isAuthenticated to false
+  dispatch(setCurrentUser({}));
+}
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -30,7 +40,7 @@ function handleErrors(response) {
   return response;
 }
 
-const loginUser = userObj => ({
-  type: LOGIN_USER,
+export const setCurrentUser = userObj => ({
+  type: SET_CURRENT_USER,
   payload: userObj
 })
