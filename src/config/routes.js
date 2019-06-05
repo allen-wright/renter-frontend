@@ -11,14 +11,13 @@ import Signup from '../components/auth/Signup';
 
 const Routes = ({ user }) => (
   <Switch>
-    <Route exact path='/' render={() => (user.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Home />))}/> />
-    <Route exact path='/dashboard' component={Dashboard} />
-    <Route exact path='/terms' component={LeaseTerms} />
-    <Route exact path='/messages' component={Messages} />
-    <Route exact path='/requests' component={MaintenanceRequests} />
-    <Route exact path='/profile' component={Profile} />
-    {/* <Route exact path='/signup' component={Signup} /> */}
-    <Route exact path="/signup" render={() => (user.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Signup />))}/>
+    <Route exact path='/' render={() => (user.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Home />) )}/> />
+    <Route exact path='/dashboard' render={() => (user.currentUser.email ? (<Dashboard />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/terms' render={() => (user.currentUser.email ? (<LeaseTerms />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/messages' render={() => (user.currentUser.email ? (<Messages />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/requests' render={() => (user.currentUser.email ? (<MaintenanceRequests />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/profile' render={() => (user.currentUser.email ? (<Profile />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path="/signup" render={() => (user.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Signup />) )}/>
   </Switch>
 );
 
