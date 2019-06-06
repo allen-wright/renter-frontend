@@ -8,7 +8,7 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
 
   useEffect(() => {
     getProfile();
-  }, []);
+  }, [getProfile]);
 
   const handleDelete = (e) => {
     e.preventDefault();
@@ -25,7 +25,7 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
         <button onClick={handleDelete}>Delete Account</button>
         </>
       :
-        <p>Loading profile</p>
+        <p>Loading profile...</p>
       }
     </main>
   )
