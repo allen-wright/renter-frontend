@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginUser, logoutUser } from '../../actions/userActions';
+import { loginUser, logoutUser } from '../../actions/authActions';
 
-const Header = ({ user, loginUser, logoutUser }) => {
+const Header = ({ auth, loginUser, logoutUser }) => {
   // const [ error, setError ] = useState(null);
   const [ userData, setUserData ] = useState({
     email: '',
@@ -11,7 +11,7 @@ const Header = ({ user, loginUser, logoutUser }) => {
   });
 
   const { email, password } = userData;
-  const { currentUser } = user;
+  const { currentUser } = auth;
 
   const handleChange = e => {
     setUserData({
@@ -64,7 +64,7 @@ const Header = ({ user, loginUser, logoutUser }) => {
 }
 
 const mapStateToProps = state => ({
-    user: state.user
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { loginUser, logoutUser } )(Header);

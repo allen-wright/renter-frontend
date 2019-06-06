@@ -9,21 +9,21 @@ import Messages from '../components/pages/Messages';
 import Profile from '../components/pages/Profile';
 import Signup from '../components/auth/Signup';
 
-const Routes = ({ user }) => (
+const Routes = ({ auth }) => (
   <Switch>
-    <Route exact path='/' render={() => (user.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Home />) )}/> />
-    <Route exact path='/dashboard' render={() => (user.currentUser.email ? (<Dashboard />) : (<Redirect to="/signup"/>) )}/> />
-    <Route exact path='/terms' render={() => (user.currentUser.email ? (<LeaseTerms />) : (<Redirect to="/signup"/>) )}/> />
-    <Route exact path='/messages' render={() => (user.currentUser.email ? (<Messages />) : (<Redirect to="/signup"/>) )}/> />
-    <Route exact path='/requests' render={() => (user.currentUser.email ? (<MaintenanceRequests />) : (<Redirect to="/signup"/>) )}/> />
-    <Route exact path='/profile' render={() => (user.currentUser.email ? (<Profile />) : (<Redirect to="/signup"/>) )}/> />
-    <Route exact path="/signup" render={() => (user.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Signup />) )}/>
+    <Route exact path='/' render={() => (auth.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Home />) )}/> />
+    <Route exact path='/dashboard' render={() => (auth.currentUser.email ? (<Dashboard />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/terms' render={() => (auth.currentUser.email ? (<LeaseTerms />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/messages' render={() => (auth.currentUser.email ? (<Messages />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/requests' render={() => (auth.currentUser.email ? (<MaintenanceRequests />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path='/profile' render={() => (auth.currentUser.email ? (<Profile />) : (<Redirect to="/signup"/>) )}/> />
+    <Route exact path="/signup" render={() => (auth.currentUser.email ? (<Redirect to="/dashboard"/>) : (<Signup />) )}/>
   </Switch>
 );
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
+    auth: state.auth,
   }
 }
 

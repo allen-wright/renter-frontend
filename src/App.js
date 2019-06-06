@@ -5,7 +5,7 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Routes from './config/routes';
 import setAuthHeader from './utils/setAuthHeader';
-import { setCurrentUser } from './actions/userActions';
+import { setCurrentUser } from './actions/authActions';
 import store from './configureStore';
 import './App.css';
 

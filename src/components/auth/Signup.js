@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { signUpUser } from '../../actions/userActions';
+import { signUpUser } from '../../actions/authActions';
 
 const Signup = ({ signUpUser }) => {
   const [ userData, setUserData ] = useState({
@@ -52,7 +52,7 @@ const Signup = ({ signUpUser }) => {
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
+    auth: state.auth,
   }
 }
 

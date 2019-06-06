@@ -3,8 +3,10 @@ import jwt_decode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
 import setAuthHeader from '../utils/setAuthHeader';
 
+const API_URL = 'http://localhost:4000/api/v1/';
+
 export const signUpUser = userData => dispatch => {
-  axios.post('http://localhost:4000/api/v1/auth/signup', userData)
+  axios.post(API_URL + 'auth/signup', userData)
     .then(res => {
       // Save to localStorage
       const { token } = res.data;
@@ -23,7 +25,7 @@ export const signUpUser = userData => dispatch => {
 };
 
 export const loginUser = userData => dispatch => {
-  axios.post('http://localhost:4000/api/v1/auth/login', userData)
+  axios.post(API_URL + 'auth/login', userData)
     .then(res => {
       // Save to localStorage
       const { token } = res.data;
@@ -49,13 +51,6 @@ export const logoutUser = () => dispatch => {
   // Set Current User to empty object which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 }
-
-// function handleErrors(response) {
-//   if (!response.ok) {
-//     throw Error(response.statusText);
-//   }
-//   return response;
-// }
 
 export const setCurrentUser = userObj => ({
   type: SET_CURRENT_USER,
