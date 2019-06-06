@@ -37,7 +37,7 @@ const Header = ({ auth, loginUser, logoutUser }) => {
       </div>
         { currentUser.email ?
         <nav>
-          <Link to='/dashboard'>Welcome, { currentUser.name.split(' ')[0] }</Link>
+          <Link to='/profile'>Welcome, { currentUser.name.split(' ')[0] }</Link>
           <Link to='/requests'>Maintenance Requests</Link>
           <Link to='/messages'>Messages</Link>
           <Link to='/terms'>Lease Terms</Link>

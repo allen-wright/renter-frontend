@@ -10,12 +10,22 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
     getProfile();
   }, []);
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    deleteUser();
+  }
+
   return(
     <main className="profile">
       { userProfile ?
+      <>
         <p>Profile</p>
+        <p>{userProfile.name}</p>
+        <p>{userProfile.email}</p>
+        <button onClick={handleDelete}>Delete Account</button>
+        </>
       :
-        <p>Loading</p>
+        <p>Loading profile</p>
       }
     </main>
   )
