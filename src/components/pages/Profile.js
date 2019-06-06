@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { getProfile, deleteUser } from '../../actions/profileActions';
 
-const Profile = ({ auth }) => {
+const Profile = ({ profile, getProfile, deleteUser }) => {
+
+  const { userProfile } = profile;
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
   return(
     <main className="profile">
-      <p>Profile</p>
+      { userProfile ?
+        <p>Profile</p>
+      :
+        <p>Loading</p>
+      }
     </main>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    auth: state.auth,
+    profile: state.profile
   }
 }
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, { getProfile, deleteUser })(Profile);
