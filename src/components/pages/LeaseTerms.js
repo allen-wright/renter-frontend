@@ -25,16 +25,16 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
     )
   }
 
+  useEffect(() => {
+    getLeaseTerms();
+  }, [getLeaseTerms]);
+
   const handleClick = (idx) => {
     setUserSelection({
       ...userSelection,
       activeSection: idx
     });
   }
-
-  useEffect(() => {
-    getLeaseTerms();
-  }, [getLeaseTerms]);
 
   const { userLeaseTerms } = leaseTerms;
   const dropdownNames = userLeaseTerms ? userLeaseTerms.sections.map((section, idx) => <LeaseTermsDropDown sectionName={section.name} idx={idx} key={idx}/>) : null;

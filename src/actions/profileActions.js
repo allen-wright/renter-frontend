@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { SET_CURRENT_USER, GET_PROFILE, PROFILE_LOADING } from '../actions/types';
 
-const API_URL = 'http://localhost:4000/api/v1/';
+const API_URL = 'http://localhost:4000/api/v1/users/';
 
 export const getProfile = () => dispatch => {
   dispatch(setProfileLoading());
-  axios.get(API_URL + 'users/')
+  axios.get(API_URL)
     .then(res => dispatch({ type: GET_PROFILE, payload: res.data }))
     .catch(err => dispatch({ type: GET_PROFILE, payload: {} }));
 }
