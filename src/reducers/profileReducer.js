@@ -1,7 +1,7 @@
 import { GET_PROFILE, PROFILE_LOADING } from '../actions/types';
 
 const initialState = {
-  userProfile: null,
+  userProfile: {},
   loading: false,
 }
 
