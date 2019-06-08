@@ -2,7 +2,7 @@ import { GET_LEASE_TERMS, LEASE_TERMS_LOADING } from '../actions/types';
 
 const initialState = {
   userLeaseTerms: null,
-  loading: false,
+  loading: false
 }
 
 const leaseTermsReducer = (state = initialState, action) => {
