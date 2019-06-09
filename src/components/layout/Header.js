@@ -55,11 +55,11 @@ const Header = ({ auth, loginUser, logoutUser }) => {
                   <label htmlFor="password">Password: </label>
                   <input type="password" name="password" value={password} onChange={handleChange} />
                 </div>
-                <input value="Login" type="submit" className={'header-signup-submit'} />
+                <input value="Login" type="submit" className={'header-signup-submit hvr-grow'} />
               </form>
             </li>
             <li>
-            <Link to='/signup' className={'hvr-underline-from-center'}>Sign Up</Link>
+            <Link to='/signup' className={'header-signup-button hvr-grow'}>Sign Up</Link>
             </li>
           </ul>
         </nav>
