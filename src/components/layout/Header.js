@@ -36,6 +36,7 @@ const Header = ({ auth, loginUser, logoutUser }) => {
         <nav>
           <ul>
             <li><Link to='/profile' className={'hvr-underline-from-center'}>Welcome, { currentUser.name.split(' ')[0] }</Link></li>
+            <li><Link to='/payments' className={'hvr-underline-from-center'}>Payments</Link></li>
             <li><Link to='/requests' className={'hvr-underline-from-center'}>Maintenance Requests</Link></li>
             <li><Link to='/messages' className={'hvr-underline-from-center'}>Messages</Link></li>
             <li><Link to='/terms' className={'hvr-underline-from-center'}>Lease Terms</Link></li>
