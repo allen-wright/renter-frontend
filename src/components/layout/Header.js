@@ -32,31 +32,36 @@ const Header = ({ auth, loginUser, logoutUser }) => {
 
   return(
     <header>
-      <div className="logo">
-        <h1>Renter</h1>
-      </div>
         { currentUser.email ?
         <nav>
-          <Link to='/profile'>Welcome, { currentUser.name.split(' ')[0] }</Link>
-          <Link to='/requests'>Maintenance Requests</Link>
-          <Link to='/messages'>Messages</Link>
-          <Link to='/terms'>Lease Terms</Link>
-          <a href="/" onClick={handleLogout}>Logout</a>
+          <ul>
+            <li><Link to='/profile' className={'hvr-underline-from-center'}>Welcome, { currentUser.name.split(' ')[0] }</Link></li>
+            <li><Link to='/requests' className={'hvr-underline-from-center'}>Maintenance Requests</Link></li>
+            <li><Link to='/messages' className={'hvr-underline-from-center'}>Messages</Link></li>
+            <li><Link to='/terms' className={'hvr-underline-from-center'}>Lease Terms</Link></li>
+            <li><a href="/" className={'hvr-underline-from-center'} onClick={handleLogout}>Logout</a></li>
+          </ul>
         </nav>
         :
         <nav>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" value={email} onChange={handleChange} />
-            </div>
-            <div>
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" value={password} onChange={handleChange} />
-            </div>
-            <input value="Submit" type="submit" />
-          </form>
-          <Link to='/signup'>Sign Up</Link>
+          <ul>
+            <li>
+              <form id={'header-signup'} onSubmit={handleSubmit}>
+                <div className={'header-signup-input'}>
+                  <label htmlFor="email">Email: </label>
+                  <input type="email" name="email" value={email} onChange={handleChange} />
+                </div>
+                <div className={'header-signup-input'}>
+                  <label htmlFor="password">Password: </label>
+                  <input type="password" name="password" value={password} onChange={handleChange} />
+                </div>
+                <input value="Login" type="submit" className={'header-signup-submit'} />
+              </form>
+            </li>
+            <li>
+            <Link to='/signup' className={'hvr-underline-from-center'}>Sign Up</Link>
+            </li>
+          </ul>
         </nav>
         }
     </header>
