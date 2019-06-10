@@ -18,7 +18,9 @@ Apps designed around helping tenants and landlords are often extremely slow, as 
 
 - Redux
 
-- Hover.css (for animations)
+- Redux-Thunk (API calls)
+
+- Hover.css (animations)
 
 - No additional JS or CSS libraries
 
@@ -26,9 +28,9 @@ Apps designed around helping tenants and landlords are often extremely slow, as 
 
 - NodeJS
 
-- JSON Web Token validation
+- JSON Web Tokes
 
-- Bcrypt authentication
+- Bcrypt encryption
 
 
 ## Existing Features
