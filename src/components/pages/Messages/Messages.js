@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getChats } from '../../../actions/chatActions';
+import { getChats, postMessage } from '../../../actions/chatActions';
 import './Messages.css';
 
-const Messages = ({ auth, chats, getChats }) => {
+const Messages = ({ auth, chats, getChats, postMessage }) => {
   const [ chatSelection, setChatSelection ] = useState({
-    activeSelection: 0
+    activeSelection: 0,
+    activeId: null
   });
 
   const [ userMessage, setUserMessage ] = useState({
     message: '',
   });
 
-  const ChatSelector = ({ idx, chatSubject, chatDate }) => {
+  const ChatSelector = ({ idx, id, chatSubject, chatDate }) => {
     return (
       <>
-        <div className='chat-selector' onClick={() => handleClick(idx)}>
+        <div className={idx === chatSelection.activeSelection ? 'chat-selector active' : 'chat-selector'} onClick={() => handleClick(idx, id)}>
           <p className='chat-date'>{chatDate}</p>
           <p className='chat-subject'>{chatSubject}</p>
         </div>
@@ -27,7 +28,7 @@ const Messages = ({ auth, chats, getChats }) => {
     const messages = chat.messages ? chat.messages.map((message, idx) => <ChatMessage message={message} key={idx}/>) : null;
     return (
       <>
-        <div className='chat'>
+        <div id='chat'>
           {messages}
         </div>
       </>
@@ -49,35 +50,44 @@ const Messages = ({ auth, chats, getChats }) => {
     getChats();
   }, [getChats]);
 
-  const handleClick = (idx) => {
+  const handleClick = (idx, id) => {
     setChatSelection({
       ...chatSelection,
-      activeSelection: idx
+      activeSelection: idx,
+      activeId: id
     });
   }
 
   const handleMessageChange = e => {
+    e.preventDefault();
     setUserMessage({
       ...userMessage,
-      [e.target.name]: e.target.value
+      message: e.target.value
     });
   };
 
   const handleMessageSubmit = e => {
-
+    e.preventDefault();
+    postMessage(chatSelection.activeId || userChats[0]._id, {content: userMessage.message});
+    setUserMessage({
+      ...userMessage,
+      message: ''
+    });
   }
 
   const { message } = userMessage;
   const { userChats } = chats;
   const chatObjs = userChats ? userChats.map((chat, idx) => <UserChat chat={chat} key={idx}/>) : null;
-  const chatSelectors = userChats ? userChats.map((chat, idx) => <ChatSelector chatSubject={chat.subject} chatDate={chat.date} idx={idx} key={idx}/>) : null;
+  const chatSelectors = userChats ? userChats.map((chat, idx) => <ChatSelector chatSubject={chat.subject} chatDate={chat.date} idx={idx} id={chat._id} key={idx}/>) : null;
 
   return(
     <main className="messages">
       <h1>Messages</h1>
       <div id='chat-container'>
         <div id='chat-selector'>
-          <button id='new-chat-button'>New Message</button>
+          <div id='new-chat'>
+            <button id='new-chat-button' className='hvr-grow'>New Message</button>
+          </div>
           { chatSelectors || null }
         </div>
         <div id='active-chat'>{chatObjs ? chatObjs[chatSelection.activeSelection] : 'Please start a new chat to the left.'}
@@ -98,4 +108,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getChats })(Messages);
+export default connect(mapStateToProps, { getChats, postMessage })(Messages);
