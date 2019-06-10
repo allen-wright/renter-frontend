@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_MAINTENANCE_REQUESTS, MAINTENANCE_REQUESTS_LOADING } from '../actions/types';
 
-const API_URL = 'http://localhost:4000/api/v1/maintenancerequests/';
+const API_URL = process.env.API_URL + 'maintenancerequests/';
 
 export const getMaintenanceRequests = () => dispatch => {
   dispatch(setMaintenanceRequestsLoading());
