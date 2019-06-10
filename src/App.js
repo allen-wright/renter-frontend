@@ -19,9 +19,6 @@ if (localStorage.jwtToken) {
   store.dispatch(setCurrentUser(decodedToken));
 }
 
-console.log(process.env.REACT_APP_API_URL);
-console.log(process.env.NODE_ENV);
-
 function App() {
   return (
     <>
