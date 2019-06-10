@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Home from '../components/pages/Home';
-import LeaseTerms from '../components/pages/LeaseTerms';
+import LeaseTerms from '../components/pages/LeaseTerms/LeaseTerms';
 import MaintenanceRequests from '../components/pages/MaintenanceRequests';
 import Messages from '../components/pages/Messages/Messages';
 import Profile from '../components/pages/Profile';

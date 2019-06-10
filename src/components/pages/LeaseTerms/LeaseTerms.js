@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getLeaseTerms } from '../../actions/leaseTermsActions';
+import { getLeaseTerms } from '../../../actions/leaseTermsActions';
+import './LeaseTerms.css';
 
 const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
   const [ userSelection, setUserSelection ] = useState({
@@ -11,7 +12,7 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
   const LeaseTermsDropDown = ({ sectionName, idx }) => {
     return(
       <>
-        <button onClick={() => handleClick(idx)}>{sectionName}</button>
+        <button className="lease-terms-button hvr-underline-from-center" onClick={() => handleClick(idx)}>{sectionName}</button>
       </>
     )
   }
@@ -19,8 +20,10 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
   const LeaseTermsSection = ({ section }) => {
     return(
       <>
-        <h2>{section.name}</h2>
-        <p>{section.content}</p>
+        <div id="lease-terms-section">
+          <h2>{section.name}</h2>
+          <p>{section.content}</p>
+        </div>
       </>
     )
   }
@@ -44,8 +47,10 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
       <main className="lease-terms">
       { userLeaseTerms ?
         <>
-          <h1>Lease Terms</h1>
-          {dropdownNames}
+          <h1 className="lease-terms-title">Lease Terms</h1>
+          <div id="lease-terms-sections">
+            {dropdownNames}
+          </div>
           {sections[userSelection.activeSection]}
         </>
       : <p>Loading</p>

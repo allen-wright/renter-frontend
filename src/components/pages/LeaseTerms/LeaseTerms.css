@@ -1,0 +1,32 @@
+#lease-terms-sections {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 75px;
+}
+
+.lease-terms-title {
+  margin-bottom: 40px;
+}
+
+.lease-terms-button {
+  margin: 0 15px;
+  font-size: 20px;
+  background: inherit;
+  border: none;
+}
+
+.lease-terms-button:hover {
+  cursor: pointer
+}
+
+#lease-terms-section {
+  width: 80%;
+}
+
+#lease-terms-section h2 {
+  text-decoration: underline;
+  margin-bottom: 10px;
+  text-align: center;
+}

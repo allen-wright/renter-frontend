@@ -18,6 +18,14 @@
   background-color: #DDDDDD;
 }
 
+.chat-selector.active .chat-subject {
+  text-decoration: underline;
+}
+
+.chat-selector.active .chat-date {
+  color: grey;
+}
+
 #active-chat {
   max-width: 600px;
   height: 400px;
@@ -33,6 +41,10 @@
   overflow-y: auto;
 }
 
+#chat-selector .active:hover {
+  background-color: lightgray;
+}
+
 .chat-selector {
   max-width: 100%;
   padding: 15px;
@@ -40,6 +52,7 @@
 
 .chat-selector:hover {
   cursor: pointer;
+  background-color: black;
 }
 
 #new-chat {

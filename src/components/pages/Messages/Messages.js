@@ -17,8 +17,8 @@ const Messages = ({ auth, chats, getChats, postMessage }) => {
     return (
       <>
         <div className={idx === chatSelection.activeSelection ? 'chat-selector active' : 'chat-selector'} onClick={() => handleClick(idx, id)}>
-          <p className='chat-date'>{chatDate}</p>
           <p className='chat-subject'>{chatSubject}</p>
+          <p className='chat-date'>{chatDate}</p>
         </div>
       </>
     )
