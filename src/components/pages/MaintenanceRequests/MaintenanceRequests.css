@@ -1,0 +1,92 @@
+#requests-container {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-top: 50px;
+  min-height: 400px;
+  border: 1px solid gray;
+}
+
+#request-selectors {
+  background-color: darkgray;
+  border-right: 1px solid gray;
+  overflow-y: auto;
+}
+
+#request-selector .active {
+  background-color: #DDDDDD;
+}
+
+.request-selector.active .request-subject {
+  text-decoration: underline;
+}
+
+.request-selector.active .request-date {
+  color: grey;
+}
+
+#active-request {
+  max-width: 600px;
+  height: 400px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
+}
+
+/* INDIVIDUAL REQUEST COMPONENTS */
+
+#request {
+  margin: auto 10px;
+  overflow-y: auto;
+}
+
+#request-selector .active:hover {
+  background-color: lightgray;
+}
+
+.request-selector {
+  max-width: 100%;
+  padding: 15px;
+}
+
+.request-selector:hover {
+  cursor: pointer;
+  background-color: lightgrey;
+}
+
+#new-request {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#new-request-button {
+  margin: 15px;
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  background-color: inherit;
+}
+
+#new-request-button:hover {
+  cursor: pointer;
+}
+
+#active-request {
+  margin: 8px;
+  margin-top: 15px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+}
+
+.request-subject, .request-name {
+  text-decoration: underline;
+}
+
+.request-name {
+  margin-bottom: 5px;
+}
+
+.request * {
+  margin-bottom: 8px;
+}

@@ -41,7 +41,7 @@
   overflow-y: auto;
 }
 
-#chat-selector .active:hover {
+#request-selector .active:hover {
   background-color: lightgray;
 }
 
