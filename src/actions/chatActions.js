@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_CHATS, CHATS_LOADING, POST_MESSAGE } from '../actions/types';
 
-const API_URL = process.env.API_URL + 'chats/';
+const API_URL = process.env.REACT_APP_API_URL + 'chats/';
 
 export const getChats = () => dispatch => {
   dispatch(setChatsLoading());

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { GET_LEASE_TERMS, LEASE_TERMS_LOADING } from '../actions/types';
 
-const API_URL = process.env.API_URL + 'leaseterms/';
+const API_URL = process.env.REACT_APP_API_URL + 'leaseterms/';
 
 export const getLeaseTerms = () => dispatch => {
   dispatch(setLeaseTermsLoading());

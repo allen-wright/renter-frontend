@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SET_CURRENT_USER, GET_PROFILE, PROFILE_LOADING } from '../actions/types';
 
-const API_URL = process.env.API_URL + 'users/';
+const API_URL = process.env.REACT_APP_API_URL + 'users/';
 
 export const getProfile = () => dispatch => {
   dispatch(setProfileLoading());

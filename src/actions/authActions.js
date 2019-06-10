@@ -3,10 +3,10 @@ import jwt_decode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
 import setAuthHeader from '../utils/setAuthHeader';
 
-const API_URL = process.env.API_URL;
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const signUpUser = userData => dispatch => {
-  axios.post(process.env.API_URL + 'auth/signup', userData)
+  axios.post(API_URL + 'auth/signup', userData)
     .then(res => {
       // Save to localStorage
       const { token } = res.data;
