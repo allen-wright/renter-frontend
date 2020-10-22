@@ -7,7 +7,6 @@ import Routes from './config/routes';
 import setAuthHeader from './utils/setAuthHeader';
 import { setCurrentUser } from './actions/authActions';
 import store from './configureStore';
-import './App.css';
 
 // checks to see if there's a JWT in the local storage
 // if so, sets authorization header to the JWT token
