@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginUser, logoutUser } from '../../actions/authActions';
+import { loginUser, logoutUser } from '../../../actions/authActions';
 
 const Header = ({ auth, loginUser, logoutUser }) => {
   // const [ error, setError ] = useState(null);
