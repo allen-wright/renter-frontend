@@ -1,7 +1,7 @@
 // sets the JWT to the authorization header for every API call
 import axios from 'axios';
 
-const setAuthHeader = JWT => {
+function setAuthHeader(JWT) {
   if (JWT) {
     axios.defaults.headers.common['Authorization'] = JWT;
   } else {

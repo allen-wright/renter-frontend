@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getLeaseTerms } from '../../../actions/leaseTermsActions';
+import { getLeaseTerms } from 'actions/leaseTermsActions';
 import './LeaseTerms.css';
 
 const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {

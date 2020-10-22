@@ -1,12 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
-import Header from './components/layout/Header/Header';
-import Footer from './components/layout/Footer';
-import Routes from './config/routes';
-import setAuthHeader from './utils/setAuthHeader';
-import { setCurrentUser } from './actions/authActions';
-import store from './configureStore';
+import Header from 'components/layout/Header';
+import Footer from 'components/layout/Footer';
+import Routes from 'config/routes';
+import setAuthHeader from 'utils/setAuthHeader';
+import { setCurrentUser } from 'actions/authActions';
+import store from 'configureStore';
 
 // checks to see if there's a JWT in the local storage
 // if so, sets authorization header to the JWT token

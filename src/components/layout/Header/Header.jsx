@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginUser, logoutUser } from '../../../actions/authActions';
+import { loginUser, logoutUser } from 'actions/authActions';
+import './Header.css';
 
-const Header = ({ auth, loginUser, logoutUser }) => {
-  // const [ error, setError ] = useState(null);
+function Header({auth, loginUser, logoutUser }) {
   const [ userData, setUserData ] = useState({
     email: '',
     password: ''
@@ -69,8 +69,8 @@ const Header = ({ auth, loginUser, logoutUser }) => {
   )
 }
 
-const mapStateToProps = state => ({
-    auth: state.auth
-});
+const mapStateToProps = function(state){
+  return { auth: state.auth };
+};
 
-export default connect(mapStateToProps, { loginUser, logoutUser } )(Header);
+export default connect(mapStateToProps, {loginUser, logoutUser})(Header);
