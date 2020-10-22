@@ -49,7 +49,7 @@ const MaintenanceRequests = ({ maintenanceRequests, getMaintenanceRequests }) =>
   const selectors = userMaintenanceRequests ? userMaintenanceRequests.map((request, idx) => <RequestSelector key={idx} idx={idx} request={request} />) : null;
 
   return(
-    <main className="maintenance-requests">
+    <section className="maintenance-requests">
       <h1>Maintenance Requests</h1>
       <div id='requests-container'>
         <div id='request-selectors'>
@@ -62,7 +62,7 @@ const MaintenanceRequests = ({ maintenanceRequests, getMaintenanceRequests }) =>
           {requests ? requests[userSelection.activeSection] : 'Please submit a new request on the left.'}
         </div>
       </div>
-    </main>
+    </section>
   )
 }
 

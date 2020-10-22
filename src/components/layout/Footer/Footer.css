@@ -1,0 +1,12 @@
+footer {
+  height: 50px;
+}
+
+footer ul {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+footer ul li {
+  margin: 0 5px;
+}

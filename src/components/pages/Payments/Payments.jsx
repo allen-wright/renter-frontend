@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 const Payments = () => {
   return (
-    <main className='payments'>
+    <section className='payments'>
       <img className='womp-womp' src='./images/payments.jpg' alt='womp womp' />
-    </main>
+    </section>
   )
 }
 

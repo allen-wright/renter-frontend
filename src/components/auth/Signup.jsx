@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { signUpUser } from '../../actions/authActions';
+import { signUpUser } from 'actions/authActions';
 
 const Signup = ({ signUpUser }) => {
   const [ userData, setUserData ] = useState({

@@ -1,12 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Home.css';
 
-const Home = ({ user }) => {
+function Home({user}){
 
   return(
-    <main className="home">
-      <h1>Renter</h1>
-    </main>
+    <section className="home">
+      <h1>Home</h1>
+      <img className='hero' src='./images/daniel-dinuzzo-qCjolcMFaLI-unsplash.jpg' alt='Apartment complex' />
+    </section>
   )
 }
 

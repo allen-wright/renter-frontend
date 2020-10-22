@@ -1,7 +1,7 @@
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 import { SET_CURRENT_USER } from './types';
-import setAuthHeader from '../utils/setAuthHeader';
+import setAuthHeader from 'utils/setAuthHeader';
 
 const API_URL = process.env.REACT_APP_API_URL;
 

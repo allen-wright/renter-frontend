@@ -44,7 +44,7 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
   const sections = userLeaseTerms ? userLeaseTerms.sections.map((section, idx) => <LeaseTermsSection section={section} key={idx}/>) : null;
 
   return(
-      <main className="lease-terms">
+      <section className="lease-terms">
       { userLeaseTerms ?
         <>
           <h1 className="lease-terms-title">Lease Terms</h1>
@@ -55,7 +55,7 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
         </>
       : <p>Loading</p>
       }
-    </main>
+    </section>
   )
 }
 

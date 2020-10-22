@@ -16,7 +16,7 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
   }
 
   return(
-    <main className="profile">
+    <section className="profile">
       { userProfile ?
         <>
           <p>Profile</p>
@@ -27,7 +27,7 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
       :
         <p>Loading profile...</p>
       }
-    </main>
+    </section>
   )
 }
 

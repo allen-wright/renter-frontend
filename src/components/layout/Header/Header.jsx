@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import { loginUser, logoutUser } from 'actions/authActions';
 import './Header.css';
 
-function Header({auth, loginUser, logoutUser }) {
-  const [ userData, setUserData ] = useState({
+function Header({auth, loginUser, logoutUser}) {
+  const [userData, setUserData] = useState({
     email: '',
     password: ''
   });
 
-  const { email, password } = userData;
-  const { currentUser } = auth;
+  const {email, password} = userData;
+  const {currentUser} = auth;
 
   const handleChange = e => {
     setUserData({
@@ -32,8 +32,9 @@ function Header({auth, loginUser, logoutUser }) {
 
   return(
     <header>
+      <nav>
+        <h1>RENTER</h1>
         { currentUser.email ?
-        <nav>
           <ul>
             <li><Link to='/profile' className={'hvr-underline-from-center'}>Welcome, { currentUser.name.split(' ')[0] }</Link></li>
             <li><Link to='/payments' className={'hvr-underline-from-center'}>Payments</Link></li>
@@ -42,29 +43,27 @@ function Header({auth, loginUser, logoutUser }) {
             <li><Link to='/terms' className={'hvr-underline-from-center'}>Lease Terms</Link></li>
             <li><a href="/" className={'hvr-underline-from-center'} onClick={handleLogout}>Logout</a></li>
           </ul>
-        </nav>
         :
-        <nav>
-          <ul>
+          <ul className={'signup-container'}>
             <li>
               <form id={'header-signup'} onSubmit={handleSubmit}>
                 <div className={'header-signup-input'}>
-                  <label htmlFor="email">Email: </label>
+                  <label htmlFor="email">EMAIL: </label>
                   <input type="email" name="email" value={email} onChange={handleChange} />
                 </div>
                 <div className={'header-signup-input'}>
-                  <label htmlFor="password">Password: </label>
+                  <label htmlFor="password">PASSWORD: </label>
                   <input type="password" name="password" value={password} onChange={handleChange} />
                 </div>
-                <input value="Login" type="submit" className={'header-signup-submit hvr-grow'} />
+                <input value="Login" type="submit" className={'header-signup-submit'} />
               </form>
             </li>
             <li>
-            <Link to='/signup' className={'header-signup-button hvr-grow'}>Sign Up</Link>
+              <Link to='/signup' className={'header-signup-button'}>SIGN UP</Link>
             </li>
           </ul>
-        </nav>
         }
+      </nav>
     </header>
   )
 }

@@ -1,4 +1,60 @@
 header {
+  font-family: 'Montserrat Bold', sans-serif;
+  margin: 0;
+  height: 40px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px 0px;
+  background-image: linear-gradient(90deg, rgb(21, 87, 153), rgb(21, 87, 140, 0.3));
+}
+
+header nav {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header nav ul {
   display: flex;
   flex-flow: row nowrap;
+  margin: 0;
+}
+
+header nav h1 {
+  font-weight: 300;
+  margin: 0;
+  font-size: 25px;
+  color: white;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 0.50px;
+  -webkit-text-stroke-color: black;
+}
+
+header nav ul li {
+  display: flex;
+}
+
+header nav ul li form {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.signup-container {
+  display: flex;
+  align-items: center;
+}
+
+.header-signup-submit {
+  margin: 0;
+  padding: 0;
+  height: 20px;
+}
+
+.header-signup-button {
+  font-size: 12px;
+  color: white;
+}
+
+header nav ul li form div label {
+  font-size: 12px;
+  color: white;
 }
