@@ -41,7 +41,7 @@ header nav ul li a {
   margin: 5px;
 }
 
-.signup-container {
+#login-container {
   display: flex;
   align-items: center;
 }
@@ -52,13 +52,17 @@ header nav ul li a {
   height: 20px;
 }
 
-.header-login-button {
+#header-login-button {
   font-size: 12px;
   color: rgb(214, 214, 214);
   text-decoration: none;
+  background-color: inherit;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-.header-login-button:hover {
+#header-login-button:hover {
   color: white;
 }
 
@@ -70,4 +74,52 @@ header nav ul li a {
 
 .header-signup-button:hover {
   color: white;
+}
+
+#header-signup {
+  left: 0;
+  font-size: 12px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#header-signup-submit {
+  font-size: 12px;
+  background-color: inherit;
+  color: inherit;
+  font-family: inherit;
+  border: none;
+}
+
+.header-signup-input input {
+  height: 10px;
+}
+
+#login-modal {
+  position: fixed;
+  visibility: hidden;
+  z-index: 1;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 500px;
+  width: 400px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid rgb(110, 110, 110);
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
+}
+
+.dark #login-modal {
+  background-color: rgb(24, 24, 24);
+}
+
+.modal-active {
+  opacity: 0.4;
 }

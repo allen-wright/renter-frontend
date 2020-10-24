@@ -10,7 +10,7 @@ function Home({user}){
   }
 
   return(
-    <section className="home">
+    <main id="home">
       <div className="hero bottom-border" style={ style }>
         <p>Managing properties should be simple.</p>
         <br />
@@ -34,7 +34,7 @@ function Home({user}){
         </div>
       </div>
       <div className="cta"><p>Ready to move your business forward? Contact our sales team for a quote.</p></div>
-    </section>
+    </main>
   )
 }
 
