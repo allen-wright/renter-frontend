@@ -1,3 +1,5 @@
+/* TODO: light theme */
+
 @font-face {
   font-family: 'Open Sans Regular';
   src: url('fonts/Open Sans/OpenSans-Regular.ttf');
@@ -27,11 +29,6 @@ section {
   padding: 20px;
   min-height: 92%;
   margin: 0 auto -50px;
-}
-
-/* light theme */
-.light {
-
 }
 
 /* dark theme */

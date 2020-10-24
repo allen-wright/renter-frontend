@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { loginUser, logoutUser } from 'actions/authActions';
 import './Header.css';
 
-function Header({auth, loginUser, logoutUser}) {
+function Header({ auth, loginUser, logoutUser }) {
   const [userData, setUserData] = useState({
     email: '',
     password: ''
@@ -33,7 +33,7 @@ function Header({auth, loginUser, logoutUser}) {
   return(
     <header className="bottom-border">
       <nav>
-        <h1>RENTER</h1>
+        <h1><Link to='/' id='logo'>RENTER</Link></h1>
         { currentUser.email ?
           <ul>
             <li><Link to='/profile' className={'hvr-underline-from-center'}>Welcome, { currentUser.name.split(' ')[0] }</Link></li>
