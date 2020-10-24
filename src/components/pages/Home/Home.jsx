@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import background from './daniel-dinuzzo-qCjolcMFaLI-unsplash.jpg';
 import './Home.css';
 
-function Home({user}){
+function Home({ user }) {
   let style = {
     backgroundImage: `linear-gradient(90deg, transparent, rgb(24, 24, 24)), url(${background})`,
     backgroundPosition: 'center'

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { loginUser, logoutUser } from 'actions/authActions';
+import { logoutUser } from 'actions/authActions';
 import './Header.css';
 
-function Header({ auth, loginUser, logoutUser }) {
+function Header({ auth, logoutUser, setModalActive }) {
   const [ userData, setUserData ] = useState({
     email: '',
     password: ''
@@ -12,26 +12,6 @@ function Header({ auth, loginUser, logoutUser }) {
 
   const { email, password } = userData;
   const { currentUser } = auth;
-
-  const handleLoginClick = () => {
-    document.querySelector("main").classList.add("modal-active");
-    document.querySelector("footer").classList.add("modal-active");
-    let modal = document.querySelector("#login-modal");
-    modal.style.visibility = "visible";
-    modal.style.opacity = "1";
-  }
-
-  const handleChange = e => {
-    setUserData({
-      ...userData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    loginUser(userData);
-  }
 
   const handleLogout = e => {
     e.preventDefault();
@@ -53,19 +33,7 @@ function Header({ auth, loginUser, logoutUser }) {
           </ul>
         :
           <ul id="login-container">
-            <button id="header-login-button" onClick={handleLoginClick}>LOGIN</button>
-            <form id="login-modal" onSubmit={handleSubmit}>
-              <div className={'header-signup-input'}>
-                <label htmlFor="email">EMAIL: </label>
-                <input type="email" name="email" value={email} onChange={handleChange} />
-              </div>
-              <div className={'header-signup-input'}>
-                <label htmlFor="password">PASSWORD: </label>
-                <input type="password" name="password" value={password} onChange={handleChange} />
-              </div>
-              <input value="LOGIN" type="submit" id="header-signup-submit" />
-            </form>
-            {/* <Link to='/login' className={'header-login-button'}>LOGIN</Link> */}
+            <button id="header-login-button" onClick={setModalActive}>LOGIN</button>
             <Link to='/signup' className={'header-signup-button'}>SIGN UP</Link>
           </ul>
         }
@@ -78,4 +46,4 @@ const mapStateToProps = function(state){
   return { auth: state.auth };
 };
 
-export default connect(mapStateToProps, { loginUser, logoutUser })(Header);
+export default connect(mapStateToProps, { logoutUser })(Header);
