@@ -1,12 +1,12 @@
 footer {
-  height: 50px;
-}
-
-footer ul {
   display: flex;
   flex-flow: row nowrap;
+  justify-content: center;
+  font-family: 'Montserrat Regular', sans-serif;
+  font-size: 12px;
+  color: rgb(218, 214, 214);
 }
 
-footer ul li {
-  margin: 0 5px;
+footer p a {
+  color: rgb(218, 214, 214);
 }

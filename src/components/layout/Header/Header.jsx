@@ -31,7 +31,7 @@ function Header({auth, loginUser, logoutUser}) {
   }
 
   return(
-    <header>
+    <header className="bottom-border">
       <nav>
         <h1>RENTER</h1>
         { currentUser.email ?
@@ -46,7 +46,7 @@ function Header({auth, loginUser, logoutUser}) {
         :
           <ul className={'signup-container'}>
             <li>
-              <form id={'header-signup'} onSubmit={handleSubmit}>
+              {/* <form id={'header-signup'} onSubmit={handleSubmit}>
                 <div className={'header-signup-input'}>
                   <label htmlFor="email">EMAIL: </label>
                   <input type="email" name="email" value={email} onChange={handleChange} />
@@ -56,9 +56,10 @@ function Header({auth, loginUser, logoutUser}) {
                   <input type="password" name="password" value={password} onChange={handleChange} />
                 </div>
                 <input value="Login" type="submit" className={'header-signup-submit'} />
-              </form>
+              </form> */}
             </li>
             <li>
+              <Link to='/login' className={'header-login-button'}>LOGIN</Link>
               <Link to='/signup' className={'header-signup-button'}>SIGN UP</Link>
             </li>
           </ul>

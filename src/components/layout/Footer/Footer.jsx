@@ -4,11 +4,7 @@ import './Footer.css';
 function Footer() {
   return(
     <footer>
-      <ul>
-        <li><h3>&copy; Renter 2019</h3></li>
-        <li><h3><a href="/about" className={'hvr-underline-from-center'}>About</a></h3></li>
-        <li><h3><a href="/emailus" className={'hvr-underline-from-center'}>Email Us</a></h3></li>
-      </ul>
+      <p>This site made in 2019/2020 by Allen Wright. Please feel free to <a href="mailto: allenwrightkc@gmail.com">email me</a>, or visit my <a href="http://www.allenwright.dev">site</a>!</p>
     </footer>
   )
 }
