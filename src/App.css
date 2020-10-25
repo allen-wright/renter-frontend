@@ -31,6 +31,12 @@ section {
   margin: 0 auto -50px;
 }
 
+#body-container {
+  transition: opacity 0.4s;
+  -webkit-transition: opacity 0.4s;
+  -moz-transition: opacity 0.4s;
+}
+
 /* dark theme */
 .dark {
   background-color: rgb(24, 24, 24);

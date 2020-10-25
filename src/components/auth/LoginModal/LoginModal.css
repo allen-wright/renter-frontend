@@ -1,28 +1,89 @@
 #login-modal {
   position: fixed;
-  visibility: visible;
   z-index: 1;
   right: 0;
   left: 0;
   top: 0;
   bottom: 0;
-  margin: auto;
-  height: 500px;
+  margin: 200px auto 0 auto;
+  height: 300px;
   width: 400px;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid rgb(110, 110, 110);
-  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.65);
-  opacity: 1;
+  font-family: 'Montserrat Bold', sans-serif;
+  border: 2px solid rgb(107, 97, 97);
+  box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.75);
+  opacity: 0;
   transition: visibility 0s, opacity 0.4s;
+  border: 2px solid gray;
+}
+
+#login-modal h1 {
+  font-size: 25px;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+
+#login-modal p {
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.header-signup-input {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-signup-input label {
+  font-family: 'Montserrat Regular', sans-serif;
+  display: block;
+  font-size: 12px;
+  cursor: text;
+  text-align: end;
+  margin-bottom: 5px;
+}
+
+.header-signup-input input {
+  display: block;
+  cursor: text;
+  margin-bottom: 5px;
+  background-color: inherit;
+  border: 1px solid rgb(107, 97, 97);
+  height: 18px;
+  width: 50%;
+  color: white;
+  text-align: center;
+}
+
+#header-signup-submit {
+  margin-top: 10px;
+  font-size: 16px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  cursor: pointer;
 }
 
 .dark #login-modal {
-  background-color: rgb(24, 24, 24);
+  background-color: rgba(24, 24, 24, 1.5);
 }
 
 .modal-active {
-  opacity: 0.4;
+  opacity: 0.5;
+  box-shadow: inset 0 0 2000px rgba(0, 0, 0, 1);
+  filter: blur(1px);
+}
+
+#reset {
+  font-family: 'Montserrat Regular', sans-serif;
+  color: white;
+  font-size: 12px;
+  margin-top: 25px;
 }

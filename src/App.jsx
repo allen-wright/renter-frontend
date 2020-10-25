@@ -31,36 +31,30 @@ class App extends React.Component {
   }
 
   setModalActive(e) {
-    e.stopPropagation();
-    console.log('active');
-    this.setState({
-      modalActive: true
-    })
     document.querySelector("header").classList.add("modal-active");
     document.querySelector("main").classList.add("modal-active");
     document.querySelector("footer").classList.add("modal-active");
-    let modal = document.querySelector("#login-modal");
-    if (modal) modal.style.visibility = "visible";
-    if (modal) modal.style.opacity = "1";
+    e.stopPropagation();
+    this.setState({
+      modalActive: true
+    })
   }
 
   setModalInactive() {
-    console.log('inactive');
-    this.setState({
-      modalActive: false
-    })
     document.querySelector("header").classList.remove("modal-active");
     document.querySelector("main").classList.remove("modal-active");
     document.querySelector("footer").classList.remove("modal-active");
-    let modal = document.querySelector("#login-modal");
-    if (modal) modal.style.visibility = "hidden";
-    if (modal) modal.style.opacity = "0";
+    let modal = document.querySelector('#login-modal');
+    if (modal) modal.style.opacity = 1;
+    this.setState({
+      modalActive: false
+    })
   }
 
   render(){
     return (
       <>
-        <div onClick={this.setModalInactive}>
+        <div id="body-container" onClick={this.setModalInactive}>
           <Header setModalActive={this.setModalActive} />
           <Routes />
           <Footer />
