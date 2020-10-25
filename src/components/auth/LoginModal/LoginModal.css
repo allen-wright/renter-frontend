@@ -14,7 +14,7 @@
   align-items: center;
   font-family: 'Montserrat Bold', sans-serif;
   border: 2px solid rgb(107, 97, 97);
-  box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.75);
   opacity: 0;
   transition: visibility 0s, opacity 0.4s;
   border: 2px solid gray;
