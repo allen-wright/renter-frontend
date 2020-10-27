@@ -29,9 +29,8 @@
 }
 
 .features {
-  height: 400px;
   width: 80%;
-  margin: 0 auto;
+  margin: 50px auto;
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -42,12 +41,12 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 50px;
   height: 100%;
   width: 50%;
 }
 
 .features div p {
-  padding-left: 100px;
   margin-right: 10px;
   text-align: end;
   font-size: 24px;
@@ -68,4 +67,45 @@
   width: 75%;
   margin: 0 auto 50px auto;
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .features {
+    width: 95%;
+    flex-direction: column;
+    margin-bottom: 0;
+  }
+  .features div {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .features div p {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .features div ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .features div ul li {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .hero {
+    align-items: center;
+    justify-content: center;
+  }
+  .hero p {
+    margin: 0 20px;
+    width: 100%;
+    text-align: center;
+  }
 }

@@ -13,7 +13,6 @@ function Home({ user }) {
     <main id="home">
       <div className="hero bottom-border" style={ style }>
         <p>Managing properties should be simple.</p>
-        <br />
         <p>That's why Renter is.</p>
       </div>
       <div className="features">

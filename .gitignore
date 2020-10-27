@@ -12,6 +12,7 @@
 /build
 nginx.conf
 Dockerfile
+app.yaml
 
 # misc
 .DS_Store

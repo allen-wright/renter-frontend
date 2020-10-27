@@ -7,6 +7,11 @@ footer {
   color: rgb(218, 214, 214);
 }
 
+footer p {
+  margin: auto 5px;
+  text-align: center;
+}
+
 footer p a {
   color: rgb(218, 214, 214);
 }
