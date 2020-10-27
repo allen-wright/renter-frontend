@@ -21,8 +21,17 @@
 }
 
 html, body, main {
-  height: 100%;
   margin: 0 auto;
+}
+
+header {
+  min-height: 3vh;
+}
+
+main {
+  display: flex;
+  min-height: 92vh;
+  flex-direction: column;
 }
 
 section {
