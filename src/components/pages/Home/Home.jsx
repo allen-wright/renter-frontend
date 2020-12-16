@@ -18,7 +18,7 @@ function Home({ user }) {
       <div className="features">
         <div>
           <p>Easily communicate with tenants, schedule maintenances, and even receive rent payments - all across as many properties as you own.</p>
-        </div>
+        </div> 
         <div id="list-container">
           <ul>
             <li>Multiple employee admin roles</li>
