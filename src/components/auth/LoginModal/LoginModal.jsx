@@ -3,15 +3,16 @@ import { connect } from 'react-redux';
 import { loginUser } from 'actions/authActions';
 import './LoginModal.css';
 
-function LoginModal({ auth }) {
+function LoginModal({ loginUser, setModalInactive, test }) {
 
   const [ userData, setUserData ] = useState({
-    email: '',
-    password: ''
+    email: 'test@test.com',
+    password: '1234'
   });
 
+  console.log(setModalInactive);
+
   const { email, password } = userData;
-  const { currentUser } = auth;
 
   useEffect(() => {
     let modal = document.querySelector('#login-modal');
@@ -29,6 +30,7 @@ function LoginModal({ auth }) {
   const handleSubmit = e => {
     e.preventDefault();
     loginUser(userData);
+    setModalInactive();
   }
 
   return(
