@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logoutUser } from 'actions/authActions';
 import './Header.css';
 
 function Header({ auth, logoutUser, setModalActive }) {
-  const [ userData, setUserData ] = useState({
-    email: '',
-    password: ''
-  });
 
-  const { email, password } = userData;
   const { currentUser } = auth;
 
   const handleLogout = e => {
