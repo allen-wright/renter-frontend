@@ -4,7 +4,8 @@ import './Footer.css';
 function Footer() {
   return(
     <footer>
-      <p>This site made in 2019/2020 by Allen Wright. Please feel free to <a href="mailto: allen@allenwright.dev">email me</a>, or visit my <a href="http://www.allenwright.dev">site</a>.</p>
+      <p>This site made in 2020/2021 by <a href="http://www.allenwright.dev">Allen Wright.</a></p>
+      <p>It utilizes React/Redux on the front-end, and Dockerized Nginx/Node/Express/NoSQL/Redis on the back-end.</p>
     </footer>
   )
 }

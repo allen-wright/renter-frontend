@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import { loginUser } from 'actions/authActions';
 import './LoginModal.css';
 
-function LoginModal({ loginUser, setModalInactive, test }) {
+function LoginModal({ loginUser }) {
 
   const [ userData, setUserData ] = useState({
     email: 'test@test.com',
     password: '1234'
   });
-
-  console.log(setModalInactive);
 
   const { email, password } = userData;
 
@@ -30,7 +28,6 @@ function LoginModal({ loginUser, setModalInactive, test }) {
   const handleSubmit = e => {
     e.preventDefault();
     loginUser(userData);
-    setModalInactive();
   }
 
   return(

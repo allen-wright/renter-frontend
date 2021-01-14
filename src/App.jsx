@@ -8,15 +8,6 @@ import { setCurrentUser } from 'actions/authActions';
 import store from 'configureStore';
 import './App.css';
 
-// checks to see if there's a JWT in the local storage
-// if so, sets authorization header to the JWT token
-// also sets the redux store to the decoded JWT token's user info
-if (localStorage.user) {
-  let name = localStorage.name;
-  let email = localStorage.email;
-  store.dispatch(setCurrentUser({name, email}));
-}
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -50,6 +41,24 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (localStorage.name) {
+      let name = localStorage.name;
+      let email = localStorage.email;
+      store.dispatch(setCurrentUser({name, email}));
+      this.setModalInactive();
+    }
+  }
+
+  componentDidUpdate() {
+    if (localStorage.name) {
+      let name = localStorage.name;
+      let email = localStorage.email;
+      store.dispatch(setCurrentUser({name, email}));
+      this.setModalInactive();
+    }
+  }
+
   render(){
     return (
       <>
@@ -58,7 +67,7 @@ class App extends React.Component {
           <Routes />
           <Footer />
         </div>
-        {this.state.modalActive ? <LoginModal setModalInactive={this.setModalInactive} /> : null}
+        {this.state.modalActive ? <LoginModal /> : null}
       </>
     );
   }

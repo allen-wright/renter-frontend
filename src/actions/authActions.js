@@ -7,6 +7,8 @@ export const signUpUser = userData => dispatch => {
   axios.post(API_URL + 'auth/signup', userData)
     .then(res => {
       // Set current user
+      localStorage.setItem('name', res.data.name);
+      localStorage.setItem('email', res.data.email);
       dispatch(setCurrentUser(res.data));
     })
     .catch(err =>
@@ -18,21 +20,28 @@ export const loginUser = userData => dispatch => {
   axios.post(API_URL + 'auth/login', userData)
     .then(res => {
       if (res.status === 200) {
-        localStorage.name = res.data.name;
-        localStorage.email = res.data.email;
+        localStorage.setItem('name', res.data.name);
+        localStorage.setItem('email', res.data.email);
         dispatch(setCurrentUser(res.data));
-        return true;
       }
     })
     .catch(err => {
       console.log(err);
-      return false;
     });
 };
 
 export const logoutUser = () => dispatch => {
-  // Set Current User to empty object which will set isAuthenticated to false
-  dispatch(setCurrentUser({}));
+  axios.delete(API_URL + 'auth/logout')
+    .then(res => {
+      if (res.status === 200) {
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        dispatch(setCurrentUser({}));
+      }
+    })
+    .catch(err => {
+      console.log(err);
+    })
 }
 
 export const setCurrentUser = userObj => ({

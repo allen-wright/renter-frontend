@@ -1,6 +1,6 @@
 footer {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   font-family: 'Montserrat Regular', sans-serif;
   font-size: 12px;
