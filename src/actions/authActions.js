@@ -4,7 +4,7 @@ import { SET_CURRENT_USER } from './types';
 const API_URL = process.env.REACT_APP_API_URL;
 
 export const signUpUser = userData => dispatch => {
-  axios.post(API_URL + 'auth/signup', userData)
+  axios.post(API_URL + 'auth/signup', userData, { withCredentials: true })
     .then(res => {
       // Set current user
       localStorage.setItem('name', res.data.name);
@@ -17,7 +17,7 @@ export const signUpUser = userData => dispatch => {
 };
 
 export const loginUser = userData => dispatch => {
-  axios.post(API_URL + 'auth/login', userData)
+  axios.post(API_URL + 'auth/login', userData, { withCredentials: true })
     .then(res => {
       if (res.status === 200) {
         localStorage.setItem('name', res.data.name);
@@ -31,7 +31,7 @@ export const loginUser = userData => dispatch => {
 };
 
 export const logoutUser = () => dispatch => {
-  axios.delete(API_URL + 'auth/logout')
+  axios.delete(API_URL + 'auth/logout', { withCredentials: true })
     .then(res => {
       if (res.status === 200) {
         localStorage.removeItem('name');
