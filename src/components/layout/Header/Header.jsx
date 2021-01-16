@@ -14,7 +14,7 @@ function Header({ auth, logoutUser, setModalActive }) {
   }
 
   return(
-    <header className="bottom-border">
+    <header>
       <nav>
         <h1><Link to='/' id='logo'>RENTER</Link></h1>
         { currentUser.email ?
@@ -29,7 +29,6 @@ function Header({ auth, logoutUser, setModalActive }) {
         :
           <ul id="login-container">
             <li><button id="header-login-button" onClick={setModalActive}>LOGIN</button></li>
-            <li><Link to='/signup' className={'header-signup-button'}>SIGN UP</Link></li>
           </ul>
         }
       </nav>

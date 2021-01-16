@@ -81,7 +81,7 @@ const Messages = ({ auth, chats, getChats, postMessage }) => {
   const chatSelectors = userChats ? userChats.map((chat, idx) => <ChatSelector chatSubject={chat.subject} chatDate={chat.date} idx={idx} id={chat._id} key={idx}/>) : null;
 
   return(
-    <section className="messages">
+    <main id="messages">
       <h1>Messages</h1>
       <div id='chat-container'>
         <div id='chat-selector'>
@@ -97,7 +97,7 @@ const Messages = ({ auth, chats, getChats, postMessage }) => {
           </form>
         </div>
       </div>
-    </section>
+    </main>
   )
 }
 

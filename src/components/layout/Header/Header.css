@@ -3,6 +3,7 @@ header {
   margin: 0;
   height: 40px;
   border: 1px solid inherit;
+  border-bottom: 1px solid rgb(110, 110, 110);
 }
 
 header nav {
@@ -15,6 +16,8 @@ header nav {
 header nav ul {
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
   margin-right: 25px;
 }
 
@@ -109,4 +112,23 @@ header nav ul li a {
 
 .header-signup-input input {
   height: 10px;
+}
+
+@media only screen and (max-width: 1006px) {
+  header {
+    border-bottom: 0px;
+    border-top: 1px solid rgb(110, 110, 110);
+    bottom: 5px;
+    position: sticky;
+  }
+  header nav h1, ul {
+    margin-bottom: 0;
+  }
+  header nav ul li a {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 530px) {
+
 }

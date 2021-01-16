@@ -17,7 +17,7 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
   // }
 
   return(
-    <main className="profile">
+    <main id="profile">
       { userProfile ?
         <>
           <p>Profile</p>
