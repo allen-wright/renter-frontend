@@ -6,9 +6,13 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import store from './configureStore';
 
+const basename = process.env.REACT_APP_BASENAME || "/";
+
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <Router
+      basename={basename}
+    >
       <App />
     </Router>
   </Provider>, document.querySelector('#react-root')
