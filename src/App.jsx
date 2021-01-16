@@ -12,12 +12,10 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalActive: false,
-      isDesktop: true,
+      modalActive: false
     }
     this.setModalActive = this.setModalActive.bind(this);
     this.setModalInactive = this.setModalInactive.bind(this);
-    this.checkWindowResize = this.checkWindowResize.bind(this);
   }
 
   componentDidMount() {
@@ -27,7 +25,6 @@ class App extends React.Component {
       store.dispatch(setCurrentUser({ name, email }));
       this.setModalInactive();
     }
-    window.addEventListener('resize', this.checkWindowResize);
   }
 
   componentDidUpdate() {
@@ -37,10 +34,6 @@ class App extends React.Component {
       store.dispatch(setCurrentUser({ name, email }));
       this.setModalInactive();
     }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize');
   }
 
   setModalActive(e) {
@@ -66,32 +59,13 @@ class App extends React.Component {
     }
   }
 
-  checkWindowResize() {
-    if (window.innerWidth < 1006 && this.state.isDesktop) {
-      this.setState({ isDesktop: false })
-    } else if (window.innerWidth > 1006 && !this.state.isDesktop) {
-      this.setState({ isDesktop: true })
-    }
-  }
-
   render(){
     return (
       <>
         <div id="body-container" onClick={this.setModalInactive}>
-          { window.innerWidth > 1006 ? 
-            <>
             <Header setModalActive={this.setModalActive} setModalInactive={this.setModelInactive} />
             <Routes />
             <Footer />
-            </>
-            :
-            <>
-            <Routes />
-            <Footer />
-            <Header setModalActive={this.setModalActive} setModalInactive={this.setModelInactive} />
-            </>
-          }
-
         </div>
         {this.state.modalActive ? <LoginModal /> : null}
       </>
