@@ -10,10 +10,11 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
     getProfile();
   }, [getProfile]);
 
-  const handleDelete = (e) => {
-    e.preventDefault();
-    deleteUser();
-  }
+  // TODO: either delete this or make it a bit more secure for demo purposes
+  // const handleDelete = (e) => {
+  //   e.preventDefault();
+  //   deleteUser();
+  // }
 
   return(
     <main className="profile">
