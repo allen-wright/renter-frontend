@@ -14,7 +14,7 @@ function Header({ auth, logoutUser, setModalActive }) {
   }
 
   return(
-    <header>
+    <header class="bottom-border">
       <nav>
         <h1><Link to='/' id='logo'>RENTER</Link></h1>
         { currentUser.email ?
