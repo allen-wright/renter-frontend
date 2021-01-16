@@ -19,17 +19,17 @@ function Header({ auth, logoutUser, setModalActive }) {
         <h1><Link to='/' id='logo'>RENTER</Link></h1>
         { currentUser.email ?
           <ul>
-            <li><Link to='/profile'>Welcome, { currentUser.name.split(' ')[0] }</Link></li>
-            <li><Link to='/payments'>Payments</Link></li>
-            <li><Link to='/requests'>Maintenance Requests</Link></li>
-            <li><Link to='/messages'>Messages</Link></li>
-            <li><Link to='/terms'>Lease Terms</Link></li>
-            <li><a href="/" onClick={handleLogout}>Logout</a></li>
+            <li><Link to='/profile' className={'header-link'}>WELCOME, { currentUser.name.split(' ')[0].toUpperCase() }</Link></li>
+            <li><Link to='/payments' className={'header-link'}>PAYMENTS</Link></li>
+            <li><Link to='/requests' className={'header-link'}>MAINTENANCE REQUESTS</Link></li>
+            <li><Link to='/messages' className={'header-link'}>MESSAGES</Link></li>
+            <li><Link to='/terms' className={'header-link'}>LEASE TERMS</Link></li>
+            <li><a href="/" className={'header-link'} onClick={handleLogout}>LOGOUT</a></li>
           </ul>
         :
           <ul id="login-container">
-            <button id="header-login-button" onClick={setModalActive}>LOGIN</button>
-            <Link to='/signup' className={'header-signup-button'}>SIGN UP</Link>
+            <li><button id="header-login-button" onClick={setModalActive}>LOGIN</button></li>
+            <li><Link to='/signup' className={'header-signup-button'}>SIGN UP</Link></li>
           </ul>
         }
       </nav>

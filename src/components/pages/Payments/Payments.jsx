@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Payments.css';
+import wompWomp from './images/payments.jpg'
 
 const Payments = () => {
   return (
-    <section className='payments'>
-      <img className='womp-womp' src='./images/payments.jpg' alt='womp womp' />
-    </section>
+    <main id='payments'>
+      <img className='womp-womp' src={wompWomp} alt='if i had one meme' />
+    </main>
   )
 }
 

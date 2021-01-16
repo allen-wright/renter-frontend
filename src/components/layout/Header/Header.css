@@ -52,6 +52,20 @@ header nav ul li a {
   height: 20px;
 }
 
+.header-link {
+  font-size: 12px;
+  color: rgb(214, 214, 214);
+  text-decoration: none;
+  background-color: inherit;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.header-link:hover {
+  color: white;
+}
+
 #header-login-button {
   font-size: 12px;
   color: rgb(214, 214, 214);
@@ -65,6 +79,8 @@ header nav ul li a {
 #header-login-button:hover {
   color: white;
 }
+
+
 
 .header-signup-button {
   font-size: 12px;
