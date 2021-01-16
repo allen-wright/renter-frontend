@@ -11,12 +11,12 @@ import Signup from 'components/auth/Signup';
 
 const Routes = ({ auth }) => (
   <Switch>
-    <Route exact path='/terms' render={() => (auth.currentUser.email ? (<LeaseTerms />) : (<Redirect to="/"/>) )}/> />
-    <Route exact path='/messages' render={() => (auth.currentUser.email ? (<Messages />) : (<Redirect to="/"/>) )}/> />
-    <Route exact path='/requests' render={() => (auth.currentUser.email ? (<MaintenanceRequests />) : (<Redirect to="/"/>) )}/> />
-    <Route exact path='/profile' render={() => (auth.currentUser.email ? (<Profile />) : (<Redirect to="/"/>) )}/> />
-    <Route exact path='/payments' render={() => (auth.currentUser.email ? (<Payments />) : (<Redirect to="/"/>) )}/> />
-    <Route exact path="/signup" render={() => (auth.currentUser.email ? (<Redirect to="/profile"/>) : (<Signup />) )}/>
+    <Route path='/terms' render={() => (auth.currentUser.email ? (<LeaseTerms />) : (<Redirect to="/"/>) )}/> />
+    <Route path='/messages' render={() => (auth.currentUser.email ? (<Messages />) : (<Redirect to="/"/>) )}/> />
+    <Route path='/requests' render={() => (auth.currentUser.email ? (<MaintenanceRequests />) : (<Redirect to="/"/>) )}/> />
+    <Route path='/profile' render={() => (auth.currentUser.email ? (<Profile />) : (<Redirect to="/"/>) )}/> />
+    <Route path='/payments' render={() => (auth.currentUser.email ? (<Payments />) : (<Redirect to="/"/>) )}/> />
+    <Route path="/signup" render={() => (auth.currentUser.email ? (<Redirect to="/profile"/>) : (<Signup />) )}/>
     <Route path='/' render={() => (auth.currentUser.email ? (<Redirect to="/profile"/>) : (<Home />) )}/> />
   </Switch>
 );
