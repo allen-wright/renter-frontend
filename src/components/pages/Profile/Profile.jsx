@@ -22,7 +22,6 @@ const Profile = ({ profile, getProfile, deleteUser }) => {
           <p>Profile</p>
           <p>{userProfile.name}</p>
           <p>{userProfile.email}</p>
-          <button onClick={handleDelete}>Delete Account</button>
         </>
       :
         <p>Loading profile...</p>
