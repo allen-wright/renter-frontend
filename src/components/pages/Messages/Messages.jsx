@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getChats, postMessage } from 'actions/chatActions';
+import { getChats, postMessage } from 'redux/actions/chatActions';
 import './Messages.css';
 
 const Messages = ({ auth, chats, getChats, postMessage }) => {

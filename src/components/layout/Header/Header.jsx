@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logoutUser } from 'actions/authActions';
+import { logoutUser } from 'redux/actions/authActions';
 import './Header.css';
 
 function Header({ auth, logoutUser, setModalActive }) {
@@ -14,7 +14,7 @@ function Header({ auth, logoutUser, setModalActive }) {
   }
 
   return(
-    <header class="bottom-border">
+    <header className="bottom-border">
       <nav>
         <h1><Link to='/' id='logo'>RENTER</Link></h1>
         { currentUser.email ?

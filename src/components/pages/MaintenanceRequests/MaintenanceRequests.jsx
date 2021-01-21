@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { getMaintenanceRequests } from 'actions/maintenanceRequestsActions';
+import { getMaintenanceRequests } from 'redux/actions/maintenanceRequestsActions';
 import './MaintenanceRequests.css';
 
 const MaintenanceRequests = ({ maintenanceRequests, getMaintenanceRequests }) => {

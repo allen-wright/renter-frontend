@@ -1,13 +1,13 @@
-import axios from 'axios';
 import { SET_CURRENT_USER } from './types';
 
-const instance = axios.create({
-  withCredentials: true,
-  baseURL: process.env.REACT_APP_API_URL + 'auth/',
-})
+const API = process.env.REACT_APP_API_URL + 'auth/';
 
 export const signUpUser = userData => dispatch => {
-  instance.post('signup', userData)
+  fetch(API + 'signup', {
+    credentials: 'include',
+    method: 'POST',
+    body: JSON.stringify(userData)
+  })
     .then(res => {
       // Set current user
       localStorage.setItem('name', res.data.name);
@@ -20,21 +20,33 @@ export const signUpUser = userData => dispatch => {
 };
 
 export const loginUser = userData => dispatch => {
-  instance.post('login', userData)
-    .then(res => {
-      if (res.status === 200) {
-        localStorage.setItem('name', res.data.name);
-        localStorage.setItem('email', res.data.email);
-        dispatch(setCurrentUser(res.data));
+  fetch(API + 'login', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    credentials: 'include',
+    body: JSON.stringify(userData)
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.name && data.email) {
+        localStorage.setItem('name', data.name);
+        localStorage.setItem('email', data.email);
+        dispatch(setCurrentUser(data));
       }
     })
     .catch(err => {
-      console.log(err);
+      console.log(err.message);
     });
 };
 
 export const logoutUser = () => dispatch => {
-  instance.delete('logout')
+  fetch(API + 'logout', {
+    method: 'DELETE',
+    credentials: 'include'
+  })
     .then(res => {
       if (res.status === 200) {
         localStorage.removeItem('name');

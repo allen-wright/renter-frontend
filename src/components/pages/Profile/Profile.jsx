@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getProfile, deleteUser } from 'actions/profileActions';
+import { getProfile, deleteUser } from 'redux/actions/profileActions';
 
 const Profile = ({ profile, getProfile, deleteUser }) => {
 

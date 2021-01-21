@@ -1,11 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Header from 'components/layout/Header';
 import Footer from 'components/layout/Footer';
 import LoginModal from 'components/auth/LoginModal';
 import Routes from 'config/routes';
-import { setCurrentUser } from 'actions/authActions';
-import store from 'configureStore';
+import { setCurrentUser } from 'redux/actions/authActions';
 import './App.css';
 
 class App extends React.Component {
@@ -22,7 +22,7 @@ class App extends React.Component {
     if (localStorage.name) {
       let name = localStorage.name;
       let email = localStorage.email;
-      store.dispatch(setCurrentUser({ name, email }));
+      this.props.dispatch(setCurrentUser({ name, email }));
       this.setModalInactive();
     }
   }
@@ -31,7 +31,7 @@ class App extends React.Component {
     if (localStorage.name) {
       let name = localStorage.name;
       let email = localStorage.email;
-      store.dispatch(setCurrentUser({ name, email }));
+      setCurrentUser({ name, email });
       this.setModalInactive();
     }
   }
@@ -73,4 +73,10 @@ class App extends React.Component {
   }
 }
 
-export default withRouter(App);
+const mapStateToProps = function(state) {
+  return {
+    auth: state.auth
+  }
+}
+
+export default connect(mapStateToProps)(withRouter(App));

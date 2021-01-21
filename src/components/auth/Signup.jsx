@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { signUpUser } from 'actions/authActions';
 
 const Signup = ({ signUpUser }) => {
   const [ userData, setUserData ] = useState({
@@ -21,7 +20,7 @@ const Signup = ({ signUpUser }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    signUpUser(userData);
+    this.props.dispatch(signUpUser(userData));
   }
 
   return(
@@ -56,4 +55,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { signUpUser })(Signup);
+export default connect(mapStateToProps)(Signup);

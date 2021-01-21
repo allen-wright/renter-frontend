@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from 'actions/authActions';
+import { loginUser } from 'redux/actions/authActions';
 import './LoginModal.css';
 
 function LoginModal({ loginUser }) {
@@ -51,7 +51,9 @@ function LoginModal({ loginUser }) {
 }
 
 const mapStateToProps = function(state){
-  return { auth: state.auth };
+  return { 
+    auth: state.auth
+  };
 };
 
 export default connect(mapStateToProps, { loginUser })(LoginModal);
