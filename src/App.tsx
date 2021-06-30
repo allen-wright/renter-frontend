@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Header from 'components/layout/Header';
@@ -8,7 +8,15 @@ import Routes from 'config/routes';
 import { setCurrentUser } from 'redux/actions/authActions';
 import './App.css';
 
-class App extends React.Component {
+interface AppProps {
+  dispatch: any
+};
+
+interface AppState {
+  modalActive: boolean
+};
+
+class App extends React.Component<AppProps, AppState> {
   constructor(props) {
     super(props);
     this.state = {
