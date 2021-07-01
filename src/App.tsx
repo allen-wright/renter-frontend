@@ -9,15 +9,16 @@ import { setCurrentUser } from 'redux/actions/authActions';
 import './App.css';
 
 interface AppProps {
-  dispatch: any
+  dispatch?: any
 };
 
 interface AppState {
   modalActive: boolean
+  auth?: any
 };
 
 class App extends React.Component<AppProps, AppState> {
-  constructor(props) {
+  constructor(props: AppProps) {
     super(props);
     this.state = {
       modalActive: false
@@ -44,10 +45,13 @@ class App extends React.Component<AppProps, AppState> {
     }
   }
 
-  setModalActive(e) {
-    document.querySelector("header").classList.add("modal-active");
-    document.querySelector("main").classList.add("modal-active");
-    document.querySelector("footer").classList.add("modal-active");
+  setModalActive(e: Event) {
+    let header = document.querySelector("header") as HTMLElement;
+    let main = document.querySelector("main") as HTMLElement;
+    let footer = document.querySelector("footer") as HTMLElement;
+    main.classList.add("modal-active");
+    header.classList.add("modal-active");
+    footer.classList.add("modal-active");
     e.stopPropagation();
     this.setState({
       modalActive: true
@@ -56,11 +60,14 @@ class App extends React.Component<AppProps, AppState> {
 
   setModalInactive() {
     if (this.state.modalActive) {
-      document.querySelector("header").classList.remove("modal-active");
-      document.querySelector("main").classList.remove("modal-active");
-      document.querySelector("footer").classList.remove("modal-active");
-      let modal = document.querySelector('#login-modal');
-      if (modal) modal.style.opacity = 1;
+      let header = document.querySelector("header") as HTMLElement;
+      let main = document.querySelector("main") as HTMLElement;
+      let footer = document.querySelector("footer") as HTMLElement;
+      header.classList.remove("modal-active");
+      main.classList.remove("modal-active");
+      footer.classList.remove("modal-active");
+      let modal: HTMLElement = document.querySelector('#login-modal') as HTMLElement;
+      if (modal) modal.style.opacity = '1';
       this.setState({
         modalActive: false
       })
@@ -71,7 +78,10 @@ class App extends React.Component<AppProps, AppState> {
     return (
       <>
         <div id="body-container" onClick={this.setModalInactive}>
-            <Header setModalActive={this.setModalActive} setModalInactive={this.setModelInactive} />
+            <Header
+              setModalActive={this.setModalActive}
+              setModalInactive={this.setModalInactive}
+            />
             <Routes />
             <Footer />
         </div>
@@ -81,7 +91,7 @@ class App extends React.Component<AppProps, AppState> {
   }
 }
 
-const mapStateToProps = function(state) {
+const mapStateToProps = function(state: AppState) {
   return {
     auth: state.auth
   }

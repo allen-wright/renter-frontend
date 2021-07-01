@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { getLeaseTerms } from 'redux/actions/leaseTermsActions';
 import './LeaseTerms.css';
@@ -32,7 +32,7 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
     getLeaseTerms();
   }, [getLeaseTerms]);
 
-  const handleClick = (idx) => {
+  const handleClick = (idx: number) => {
     setUserSelection({
       ...userSelection,
       activeSection: idx
@@ -40,8 +40,8 @@ const LeaseTerms = ({ leaseTerms, getLeaseTerms }) => {
   }
 
   const { userLeaseTerms } = leaseTerms;
-  const dropdownNames = userLeaseTerms ? userLeaseTerms.sections.map((section, idx) => <LeaseTermsDropDown sectionName={section.name} idx={idx} key={idx}/>) : null;
-  const sections = userLeaseTerms ? userLeaseTerms.sections.map((section, idx) => <LeaseTermsSection section={section} key={idx}/>) : null;
+  const dropdownNames = userLeaseTerms ? userLeaseTerms.sections.map((section: object, idx: number) => <LeaseTermsDropDown sectionName={section.name} idx={idx} key={idx}/>) : null;
+  const sections = userLeaseTerms ? userLeaseTerms.sections.map((section: string, idx: number) => <LeaseTermsSection section={section} key={idx}/>) : null;
 
   return(
       <main id="lease-terms">
