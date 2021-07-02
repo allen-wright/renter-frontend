@@ -1,18 +1,12 @@
 # Renter
 
-Renter is a simple app that allows tenants to quickly and easily interact with their landlords, and allows landlords to manage their tenants.
-
-[Heroku link](https://stark-fortress-21681.herokuapp.com/)
-
-[Trello Link](https://trello.com/b/LzMMRNMT/renter)
-
-## Design Philosophy
-
-Apps designed around helping tenants and landlords are often extremely slow, as they tend to be shells for websites that weren't even that fast to begin with. Renter is built from the ground-up with extreme speed in mind, and as such React (with Redux) was chosen on the front-end. To even further speed it up, *every* component is functional with the appropriate hooks.
+Renter is a simple app that allows tenants to quickly and easily interact with their landlords, and allows landlords to manage their tenants. It is a demo project meant to utilize TypeScript, React, Redux, and other technologies.
 
 ## Technologies Used
 
 ### Front-End
+
+- TypeScript
 
 - React
 
@@ -28,13 +22,19 @@ Apps designed around helping tenants and landlords are often extremely slow, as 
 
 - NodeJS
 
-- JSON Web Tokes
+- Express
+
+- Sessions
+
+- MongoDB
 
 - Bcrypt encryption
 
+- Redis Caching
+
+- Dockerized deployment on an Nginx server
 
 ## Existing Features
-
 
 - Create your own account
 
@@ -51,5 +51,3 @@ Apps designed around helping tenants and landlords are often extremely slow, as 
 - Further profile functionality
 
 - Expanded chat capabilities
-
-- React Native, for a mobile phone app
