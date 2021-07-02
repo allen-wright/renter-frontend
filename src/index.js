@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -9,9 +8,7 @@ const basename = process.env.REACT_APP_BASENAME || "/";
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router
-      basename={basename}
-    >
+    <Router basename={basename}>
       <App />
     </Router>
   </Provider>, document.querySelector('#react-root')
